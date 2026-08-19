@@ -1,0 +1,80 @@
+[
+  {
+    "warehouseId": "cdmx",
+    "zones": [
+      {
+        "id": "zone-cocoa",
+        "label": "Cocoa Picks",
+        "racks": [
+          { "id": "rack-cp1", "label": "Rack CP1", "containers": [{ "id": "container-c01", "label": "C01" }, { "id": "container-c02", "label": "C02" }, { "id": "container-c03", "label": "C03" }] }
+        ]
+      },
+      {
+        "id": "zone-bars",
+        "label": "Chocolate Bars",
+        "racks": [
+          { "id": "rack-b2", "label": "Rack B2", "containers": [{ "id": "container-c04", "label": "C04" }, { "id": "container-c05", "label": "C05" }, { "id": "container-c06", "label": "C06" }] }
+        ]
+      },
+      {
+        "id": "zone-cold",
+        "label": "Cool Storage",
+        "racks": [
+          { "id": "rack-cold1", "label": "Rack CL1", "containers": [{ "id": "container-c07", "label": "C07" }, { "id": "container-c08", "label": "C08" }, { "id": "container-c09", "label": "C09" }] }
+        ]
+      }
+    ]
+  },
+  {
+    "warehouseId": "monterrey",
+    "zones": [
+      {
+        "id": "zone-cups",
+        "label": "Peanut Butter Cups",
+        "racks": [
+          { "id": "rack-pb1", "label": "Rack PB1", "containers": [{ "id": "container-c01", "label": "C01" }, { "id": "container-c02", "label": "C02" }, { "id": "container-c03", "label": "C03" }] }
+        ]
+      },
+      {
+        "id": "zone-minis",
+        "label": "Miniatures",
+        "racks": [
+          { "id": "rack-mn2", "label": "Rack MN2", "containers": [{ "id": "container-c04", "label": "C04" }, { "id": "container-c05", "label": "C05" }, { "id": "container-c06", "label": "C06" }] }
+        ]
+      },
+      {
+        "id": "zone-candy",
+        "label": "Candy",
+        "racks": [
+          { "id": "rack-cy3", "label": "Rack CY3", "containers": [{ "id": "container-c07", "label": "C07" }, { "id": "container-c08", "label": "C08" }, { "id": "container-c09", "label": "C09" }] }
+        ]
+      }
+    ]
+  },
+  {
+    "warehouseId": "guadalajara",
+    "zones": [
+      {
+        "id": "zone-kisses",
+        "label": "Kisses",
+        "racks": [
+          { "id": "rack-ks1", "label": "Rack KS1", "containers": [{ "id": "container-c01", "label": "C01" }, { "id": "container-c02", "label": "C02" }, { "id": "container-c03", "label": "C03" }] }
+        ]
+      },
+      {
+        "id": "zone-crunch",
+        "label": "Crunch & Wafers",
+        "racks": [
+          { "id": "rack-cw2", "label": "Rack CW2", "containers": [{ "id": "container-c04", "label": "C04" }, { "id": "container-c05", "label": "C05" }, { "id": "container-c06", "label": "C06" }] }
+        ]
+      },
+      {
+        "id": "zone-mints",
+        "label": "Mints",
+        "racks": [
+          { "id": "rack-mt3", "label": "Rack MT3", "containers": [{ "id": "container-c07", "label": "C07" }, { "id": "container-c08", "label": "C08" }, { "id": "container-c09", "label": "C09" }] }
+        ]
+      }
+    ]
+  }
+]

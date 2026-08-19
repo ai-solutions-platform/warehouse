@@ -1,0 +1,9 @@
+[
+  { "id": "prod-hersheys-milk", "name": "HERSHEY'S Milk Chocolate Bars", "category": "Chocolate Bars", "color": "#5A2E22", "minimumStock": 180 },
+  { "id": "prod-kisses", "name": "HERSHEY'S KISSES Milk Chocolate", "category": "Kisses", "color": "#8B8F9A", "minimumStock": 220 },
+  { "id": "prod-reeses-cups", "name": "REESE'S Peanut Butter Cups", "category": "Peanut Butter", "color": "#F36B21", "minimumStock": 160 },
+  { "id": "prod-kitkat", "name": "KIT KAT Wafer Bars", "category": "Wafer Bars", "color": "#D71920", "minimumStock": 140 },
+  { "id": "prod-rolo", "name": "ROLO Caramels", "category": "Caramel Chocolates", "color": "#B58A2A", "minimumStock": 95 },
+  { "id": "prod-jolly", "name": "JOLLY RANCHER Hard Candy", "category": "Candy", "color": "#38A169", "minimumStock": 130 },
+  { "id": "prod-icebreakers", "name": "ICE BREAKERS Mints", "category": "Mints", "color": "#2B8CC4", "minimumStock": 90 }
+]

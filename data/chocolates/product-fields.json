@@ -1,0 +1,11 @@
+[
+  { "key": "name", "label": "Chocolate item", "type": "text", "required": true },
+  { "key": "category", "label": "Brand family", "type": "text", "required": true },
+  { "key": "color", "label": "Shelf color", "type": "color", "required": true },
+  { "key": "minimumStock", "label": "Minimum cases", "type": "number", "required": true },
+  { "key": "warehouseId", "label": "Distribution center", "type": "select", "required": true },
+  { "key": "zoneId", "label": "Storage zone", "type": "select", "required": true },
+  { "key": "rackId", "label": "Rack", "type": "select", "required": true },
+  { "key": "containerId", "label": "Case slot", "type": "select", "required": true },
+  { "key": "quantity", "label": "Cases", "type": "number", "required": true }
+]

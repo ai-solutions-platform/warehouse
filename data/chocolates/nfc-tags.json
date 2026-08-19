@@ -1,0 +1,9 @@
+[
+  { "id": "CHO-CDMX-B2-C04", "productId": "prod-hersheys-milk", "warehouseId": "cdmx", "zoneId": "zone-bars", "rackId": "rack-b2", "containerId": "container-c04", "quantity": 320, "lastUpdated": "2026-08-18T08:30:00" },
+  { "id": "CHO-GDL-KS1-C02", "productId": "prod-kisses", "warehouseId": "guadalajara", "zoneId": "zone-kisses", "rackId": "rack-ks1", "containerId": "container-c02", "quantity": 260, "lastUpdated": "2026-08-18T09:20:00" },
+  { "id": "CHO-MTY-PB1-C01", "productId": "prod-reeses-cups", "warehouseId": "monterrey", "zoneId": "zone-cups", "rackId": "rack-pb1", "containerId": "container-c01", "quantity": 88, "lastUpdated": "2026-08-18T07:40:00" },
+  { "id": "CHO-GDL-CW2-C05", "productId": "prod-kitkat", "warehouseId": "guadalajara", "zoneId": "zone-crunch", "rackId": "rack-cw2", "containerId": "container-c05", "quantity": 132, "lastUpdated": "2026-08-17T16:10:00" },
+  { "id": "CHO-CDMX-CL1-C08", "productId": "prod-rolo", "warehouseId": "cdmx", "zoneId": "zone-cold", "rackId": "rack-cold1", "containerId": "container-c08", "quantity": 54, "lastUpdated": "2026-08-17T14:05:00" },
+  { "id": "CHO-MTY-CY3-C07", "productId": "prod-jolly", "warehouseId": "monterrey", "zoneId": "zone-candy", "rackId": "rack-cy3", "containerId": "container-c07", "quantity": 210, "lastUpdated": "2026-08-18T10:05:00" },
+  { "id": "CHO-GDL-MT3-C09", "productId": "prod-icebreakers", "warehouseId": "guadalajara", "zoneId": "zone-mints", "rackId": "rack-mt3", "containerId": "container-c09", "quantity": 72, "lastUpdated": "2026-08-18T11:15:00" }
+]

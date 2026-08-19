@@ -1,0 +1,29 @@
+[
+  {
+    "warehouseId": "celaya",
+    "city": "Celaya",
+    "state": "Guanajuato",
+    "label": "Celaya, Guanajuato",
+    "coordinates": { "lat": 20.5235, "lng": -100.8157 },
+    "activityScore": 91,
+    "status": "attention"
+  },
+  {
+    "warehouseId": "monterrey",
+    "city": "Monterrey",
+    "state": "Nuevo Leon",
+    "label": "Monterrey, Nuevo Leon",
+    "coordinates": { "lat": 25.6866, "lng": -100.3161 },
+    "activityScore": 74,
+    "status": "stable"
+  },
+  {
+    "warehouseId": "guadalajara",
+    "city": "Guadalajara",
+    "state": "Jalisco",
+    "label": "Guadalajara, Jalisco",
+    "coordinates": { "lat": 20.6597, "lng": -103.3496 },
+    "activityScore": 63,
+    "status": "stable"
+  }
+]

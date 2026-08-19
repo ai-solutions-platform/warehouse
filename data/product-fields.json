@@ -1,0 +1,11 @@
+[
+  { "key": "name", "label": "Product name", "type": "text", "required": true },
+  { "key": "category", "label": "Category", "type": "text", "required": true },
+  { "key": "color", "label": "Product color", "type": "color", "required": true },
+  { "key": "minimumStock", "label": "Minimum stock", "type": "number", "required": true },
+  { "key": "warehouseId", "label": "Warehouse", "type": "select", "required": true },
+  { "key": "zoneId", "label": "Zone", "type": "select", "required": true },
+  { "key": "rackId", "label": "Rack", "type": "select", "required": true },
+  { "key": "containerId", "label": "Container", "type": "select", "required": true },
+  { "key": "quantity", "label": "Quantity", "type": "number", "required": true }
+]

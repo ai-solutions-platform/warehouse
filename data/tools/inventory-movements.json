@@ -1,0 +1,8 @@
+[
+  { "id": "mv-001", "tagId": "NFC-CEL-A1-C12", "productId": "prod-screws", "warehouseId": "celaya", "zoneId": "zone-a", "rackId": "rack-a1", "containerId": "container-c12", "quantity": 40, "type": "stock-out", "occurredAt": "2026-08-18T08:10:00" },
+  { "id": "mv-002", "tagId": "NFC-MTY-B3-C03", "productId": "prod-labels", "warehouseId": "monterrey", "zoneId": "zone-b", "rackId": "rack-b3", "containerId": "container-c03", "quantity": 20, "type": "stock-in", "occurredAt": "2026-08-18T09:15:00" },
+  { "id": "mv-003", "tagId": "NFC-GDL-B1-C08", "productId": "prod-wire", "warehouseId": "guadalajara", "zoneId": "zone-b", "rackId": "rack-b1", "containerId": "container-c08", "quantity": 3, "type": "stock-out", "occurredAt": "2026-08-17T14:00:00" },
+  { "id": "mv-004", "tagId": "NFC-CEL-C2-C07", "productId": "prod-gaskets", "warehouseId": "celaya", "zoneId": "zone-c", "rackId": "rack-c2", "containerId": "container-c07", "quantity": 10, "type": "stock-out", "occurredAt": "2026-08-16T12:45:00" },
+  { "id": "mv-005", "tagId": "NFC-CEL-A3-C02", "productId": "prod-gloves", "warehouseId": "celaya", "zoneId": "zone-a", "rackId": "rack-a3", "containerId": "container-c02", "quantity": 6, "type": "stock-out", "occurredAt": "2026-08-18T07:50:00" },
+  { "id": "mv-006", "tagId": "NFC-GDL-D1-C05", "productId": "prod-sensors", "warehouseId": "guadalajara", "zoneId": "zone-d", "rackId": "rack-d1", "containerId": "container-c05", "quantity": 5, "type": "stock-in", "occurredAt": "2026-08-18T10:05:00" }
+]

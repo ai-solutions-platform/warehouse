@@ -1,0 +1,41 @@
+[
+  {
+    "id": "celaya",
+    "name": "Celaya Warehouse",
+    "shortName": "Celaya",
+    "city": "Celaya",
+    "state": "Guanajuato",
+    "color": "#C44A44",
+    "zones": [
+      { "id": "zone-a", "name": "Zone A" },
+      { "id": "zone-b", "name": "Zone B" },
+      { "id": "zone-c", "name": "Zone C" }
+    ]
+  },
+  {
+    "id": "monterrey",
+    "name": "Monterrey Distribution Center",
+    "shortName": "Monterrey",
+    "city": "Monterrey",
+    "state": "Nuevo Leon",
+    "color": "#3E77B6",
+    "zones": [
+      { "id": "zone-a", "name": "Zone A" },
+      { "id": "zone-b", "name": "Zone B" },
+      { "id": "zone-c", "name": "Zone C" }
+    ]
+  },
+  {
+    "id": "guadalajara",
+    "name": "Guadalajara Service Hub",
+    "shortName": "Guadalajara",
+    "city": "Guadalajara",
+    "state": "Jalisco",
+    "color": "#588E6A",
+    "zones": [
+      { "id": "zone-b", "name": "Zone B" },
+      { "id": "zone-c", "name": "Zone C" },
+      { "id": "zone-d", "name": "Zone D" }
+    ]
+  }
+]

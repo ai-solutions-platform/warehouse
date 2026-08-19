@@ -1,0 +1,41 @@
+[
+  {
+    "id": "cdmx",
+    "name": "CDMX Chocolate Fulfillment Center",
+    "shortName": "CDMX",
+    "city": "Mexico City",
+    "state": "Ciudad de Mexico",
+    "color": "#7A3E2E",
+    "zones": [
+      { "id": "zone-cocoa", "name": "Cocoa Picks" },
+      { "id": "zone-bars", "name": "Chocolate Bars" },
+      { "id": "zone-cold", "name": "Cool Storage" }
+    ]
+  },
+  {
+    "id": "monterrey",
+    "name": "Monterrey Candy Distribution Center",
+    "shortName": "Monterrey",
+    "city": "Monterrey",
+    "state": "Nuevo Leon",
+    "color": "#D9483B",
+    "zones": [
+      { "id": "zone-cups", "name": "Peanut Butter Cups" },
+      { "id": "zone-minis", "name": "Miniatures" },
+      { "id": "zone-candy", "name": "Candy" }
+    ]
+  },
+  {
+    "id": "guadalajara",
+    "name": "Guadalajara Sweet Goods Hub",
+    "shortName": "Guadalajara",
+    "city": "Guadalajara",
+    "state": "Jalisco",
+    "color": "#B7852B",
+    "zones": [
+      { "id": "zone-kisses", "name": "Kisses" },
+      { "id": "zone-crunch", "name": "Crunch & Wafers" },
+      { "id": "zone-mints", "name": "Mints" }
+    ]
+  }
+]

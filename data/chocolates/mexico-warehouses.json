@@ -1,0 +1,29 @@
+[
+  {
+    "warehouseId": "cdmx",
+    "city": "Mexico City",
+    "state": "Ciudad de Mexico",
+    "label": "Mexico City, CDMX",
+    "coordinates": { "lat": 19.4326, "lng": -99.1332 },
+    "activityScore": 94,
+    "status": "attention"
+  },
+  {
+    "warehouseId": "monterrey",
+    "city": "Monterrey",
+    "state": "Nuevo Leon",
+    "label": "Monterrey, Nuevo Leon",
+    "coordinates": { "lat": 25.6866, "lng": -100.3161 },
+    "activityScore": 82,
+    "status": "stable"
+  },
+  {
+    "warehouseId": "guadalajara",
+    "city": "Guadalajara",
+    "state": "Jalisco",
+    "label": "Guadalajara, Jalisco",
+    "coordinates": { "lat": 20.6597, "lng": -103.3496 },
+    "activityScore": 78,
+    "status": "stable"
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "warehouseId": "celaya",
+    "zones": [
+      {
+        "id": "zone-a",
+        "label": "Zone A",
+        "racks": [
+          { "id": "rack-a1", "label": "Rack A1", "containers": [{ "id": "container-c11", "label": "C11" }, { "id": "container-c12", "label": "C12" }, { "id": "container-c13", "label": "C13" }] },
+          { "id": "rack-a2", "label": "Rack A2", "containers": [{ "id": "container-c01", "label": "C01" }, { "id": "container-c02", "label": "C02" }, { "id": "container-c03", "label": "C03" }] },
+          { "id": "rack-a3", "label": "Rack A3", "containers": [{ "id": "container-c02", "label": "C02" }, { "id": "container-c04", "label": "C04" }, { "id": "container-c06", "label": "C06" }] }
+        ]
+      },
+      {
+        "id": "zone-b",
+        "label": "Zone B",
+        "racks": [
+          { "id": "rack-b1", "label": "Rack B1", "containers": [{ "id": "container-c05", "label": "C05" }, { "id": "container-c06", "label": "C06" }, { "id": "container-c07", "label": "C07" }] }
+        ]
+      },
+      {
+        "id": "zone-c",
+        "label": "Zone C",
+        "racks": [
+          { "id": "rack-c2", "label": "Rack C2", "containers": [{ "id": "container-c07", "label": "C07" }, { "id": "container-c08", "label": "C08" }, { "id": "container-c09", "label": "C09" }] }
+        ]
+      }
+    ]
+  },
+  {
+    "warehouseId": "monterrey",
+    "zones": [
+      {
+        "id": "zone-a",
+        "label": "Zone A",
+        "racks": [
+          { "id": "rack-a2", "label": "Rack A2", "containers": [{ "id": "container-c02", "label": "C02" }, { "id": "container-c03", "label": "C03" }, { "id": "container-c04", "label": "C04" }] }
+        ]
+      },
+      {
+        "id": "zone-b",
+        "label": "Zone B",
+        "racks": [
+          { "id": "rack-b3", "label": "Rack B3", "containers": [{ "id": "container-c01", "label": "C01" }, { "id": "container-c02", "label": "C02" }, { "id": "container-c03", "label": "C03" }] }
+        ]
+      }
+    ]
+  },
+  {
+    "warehouseId": "guadalajara",
+    "zones": [
+      {
+        "id": "zone-b",
+        "label": "Zone B",
+        "racks": [
+          { "id": "rack-b1", "label": "Rack B1", "containers": [{ "id": "container-c06", "label": "C06" }, { "id": "container-c07", "label": "C07" }, { "id": "container-c08", "label": "C08" }] }
+        ]
+      },
+      {
+        "id": "zone-d",
+        "label": "Zone D",
+        "racks": [
+          { "id": "rack-d1", "label": "Rack D1", "containers": [{ "id": "container-c03", "label": "C03" }, { "id": "container-c04", "label": "C04" }, { "id": "container-c05", "label": "C05" }] }
+        ]
+      }
+    ]
+  }
+]

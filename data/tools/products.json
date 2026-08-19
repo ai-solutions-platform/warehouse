@@ -1,0 +1,8 @@
+[
+  { "id": "prod-screws", "name": "M4 Stainless Screws", "category": "Fasteners", "color": "#D94A42", "minimumStock": 120 },
+  { "id": "prod-wire", "name": "Copper Wire Roll", "category": "Electrical", "color": "#4E8FD1", "minimumStock": 18 },
+  { "id": "prod-gaskets", "name": "Silicone Gaskets", "category": "Spare Parts", "color": "#5C9E7A", "minimumStock": 70 },
+  { "id": "prod-labels", "name": "Thermal Labels", "category": "Packaging", "color": "#E0A538", "minimumStock": 20 },
+  { "id": "prod-gloves", "name": "Cut-Resistant Gloves", "category": "Safety", "color": "#A76AC7", "minimumStock": 24 },
+  { "id": "prod-sensors", "name": "Pressure Sensors", "category": "Electronics", "color": "#4F7A82", "minimumStock": 8 }
+]
