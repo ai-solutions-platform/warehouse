@@ -15,7 +15,7 @@ import toolWarehouses from "@/data/tools/warehouses.json";
 
 export type InventoryDatasetId = "tools" | "chocolates";
 
-export const activeDatasetId: InventoryDatasetId = "tools";
+export const activeDatasetId: InventoryDatasetId = "chocolates";
 
 export const inventoryDatasets = {
   tools: {
@@ -73,13 +73,13 @@ export const inventoryDatasets = {
     movements: toolMovements,
   },
   chocolates: {
-    appName: "Chocolate Inventory",
+    appName: "Smart Warehouse",
     tagline: "NFC Warehouses",
     assistantName: "Assistant",
     storageKey: "warehouse_nfc_chocolates_demo_v1",
     ui: {
       nav: {
-        inventory: "Chocolate Stock",
+        inventory: "Inventory",
         movements: "Sales Flow",
         warehouses: "Warehouses",
         map: "Mexico Map",
@@ -105,7 +105,7 @@ export const inventoryDatasets = {
         placeholder: "Search by chocolate, brand family, warehouse, rack, case slot, or NFC tag",
       },
       sections: {
-        inventoryTitle: "Chocolate Stock",
+        inventoryTitle: "Inventory",
         inventorySubtitle: "Chocolate, candy, and mint cases grouped by brand, location, and quantity.",
         movementsTitle: "Sales Flow",
         movementsSubtitle: "Stock-in and stock-out activity for chocolate, candy, and mint cases.",

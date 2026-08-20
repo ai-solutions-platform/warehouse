@@ -21,9 +21,13 @@ export function AppHeader({ sidebarOpen, onToggleSidebar }: AppHeaderProps) {
           <span />
         </button>
         <div className="app-header-title">
-          <span className="bosch-mark" aria-hidden="true">
-            <span className="chocolate-icon" />
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="brand-logo-img"
+            src="/images/chocolates/icon-demo.png"
+            alt=""
+            aria-hidden="true"
+          />
           <div>
             <strong>{appConfig.name}</strong>
             <span>{appConfig.tagline}</span>

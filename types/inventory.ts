@@ -1,4 +1,5 @@
 export type MovementType = "stock-in" | "stock-out";
+export type MovementStatus = "verified" | "review";
 export type ItemStatus = "healthy" | "low" | "critical";
 export type AssistantState =
   | "ready"
@@ -21,6 +22,8 @@ export interface Warehouse {
   city: string;
   state: string;
   color: string;
+  image?: string;
+  capacity?: number;
   zones: Array<{
     id: string;
     name: string;
@@ -43,6 +46,7 @@ export interface Product {
   category: string;
   color: string;
   minimumStock: number;
+  image?: string;
 }
 
 export interface NFCTag {
@@ -67,6 +71,8 @@ export interface InventoryMovement {
   quantity: number;
   type: MovementType;
   occurredAt: string;
+  operator?: string;
+  status?: MovementStatus;
 }
 
 export interface WarehouseLayoutContainer {
