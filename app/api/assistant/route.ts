@@ -36,13 +36,29 @@ function safeDebug(value: string, maxLength = 700) {
   return value.length > maxLength ? `${value.slice(0, maxLength)}...` : value;
 }
 
-function getProxyUrl() {
-  return (
+interface ProxyConfig {
+  uri: string;
+  token?: string;
+}
+
+function getProxyConfig(): ProxyConfig | undefined {
+  const raw =
     process.env.HTTPS_PROXY ??
     process.env.HTTP_PROXY ??
     process.env.https_proxy ??
-    process.env.http_proxy
-  );
+    process.env.http_proxy;
+
+  if (!raw) return undefined;
+
+  const username = process.env.PROXY_USERNAME;
+  const password = process.env.PROXY_PASSWORD;
+
+  if (username && password) {
+    const token = `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`;
+    return { uri: raw, token };
+  }
+
+  return { uri: raw };
 }
 
 function buildFriendlyFallback(question: string) {
@@ -135,12 +151,13 @@ export async function POST(request: Request) {
 
   try {
     const url = new URL("responses", endpoint.endsWith("/") ? endpoint : `${endpoint}/`);
-    const proxyUrl = getProxyUrl();
+    const proxyConfig = getProxyConfig();
     console.info("[assistant-llm] request", {
       endpoint: url.toString(),
       deployment,
       inventoryItems: payload.inventory.length,
-      proxy: proxyUrl ? new URL(proxyUrl).host : "none",
+      proxy: proxyConfig ? new URL(proxyConfig.uri).host : "none",
+      proxyAuth: proxyConfig?.token ? "basic" : "none",
     });
 
     const response = await fetch(url, {
@@ -156,7 +173,7 @@ export async function POST(request: Request) {
         input: buildUserPrompt(payload),
         temperature,
       }),
-      ...(proxyUrl ? { dispatcher: new ProxyAgent(proxyUrl) } : {}),
+      ...(proxyConfig ? { dispatcher: new ProxyAgent(proxyConfig) } : {}),
     } as RequestInit & { dispatcher?: ProxyAgent });
 
     if (!response.ok) {
