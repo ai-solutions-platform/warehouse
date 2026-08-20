@@ -6,6 +6,8 @@
     "city": "Mexico City",
     "state": "Ciudad de Mexico",
     "color": "#7A3E2E",
+    "image": "/images/warehouses/cdmx.jpg",
+    "capacity": 600,
     "zones": [
       { "id": "zone-cocoa", "name": "Cocoa Picks" },
       { "id": "zone-bars", "name": "Chocolate Bars" },
@@ -19,6 +21,8 @@
     "city": "Monterrey",
     "state": "Nuevo Leon",
     "color": "#D9483B",
+    "image": "/images/warehouses/monterrey.jpg",
+    "capacity": 600,
     "zones": [
       { "id": "zone-cups", "name": "Peanut Butter Cups" },
       { "id": "zone-minis", "name": "Miniatures" },
@@ -32,6 +36,8 @@
     "city": "Guadalajara",
     "state": "Jalisco",
     "color": "#B7852B",
+    "image": "/images/warehouses/guadalajara.jpg",
+    "capacity": 600,
     "zones": [
       { "id": "zone-kisses", "name": "Kisses" },
       { "id": "zone-crunch", "name": "Crunch & Wafers" },

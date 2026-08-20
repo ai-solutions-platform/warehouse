@@ -2,26 +2,21 @@
 
 import { useMemo, useState } from "react";
 import { VoiceAssistant } from "@/components/assistant/VoiceAssistant";
-import { DashboardCharts } from "@/components/dashboard/DashboardCharts";
-import { Hero } from "@/components/dashboard/Hero";
-import { Stats } from "@/components/dashboard/Stats";
+import { Overview } from "@/components/dashboard/Overview";
 import { InventorySection } from "@/components/inventory/InventorySection";
+import { RestockView } from "@/components/inventory/RestockView";
 import { AppHeader } from "@/components/layout/AppHeader";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { Sidebar, type ViewId } from "@/components/layout/Sidebar";
 import { WarehouseMap } from "@/components/map/WarehouseMap";
+import { MovementsView } from "@/components/movements/MovementsView";
 import { NfcScanner } from "@/components/nfc/NfcScanner";
 import { NfcWizard } from "@/components/nfc/NfcWizard";
-import { WarehouseLayout } from "@/components/warehouse/WarehouseLayout";
+import { WarehousesView } from "@/components/warehouse/WarehousesView";
 import { activeInventoryDataset } from "@/config/dataset-config";
-import { getWarehouseLayout } from "@/config/warehouse-config";
 import { useInventory } from "@/hooks/use-inventory";
-import { formatDate } from "@/lib/date";
 import {
   filterInventoryRecords,
-  getMovementTypeLabel,
-  getStatusLabel,
-  getLocationSummary,
 } from "@/lib/inventory-utils";
 import type { InventoryRecord, NfcSimulationDraft } from "@/types/inventory";
 
@@ -73,13 +68,6 @@ export function WarehouseApp() {
     [records, warehouses]
   );
 
-  const selectedWarehouseRecords = useMemo(
-    () =>
-      selectedWarehouseId === "all"
-        ? []
-        : records.filter((record) => record.warehouse.id === selectedWarehouseId),
-    [records, selectedWarehouseId]
-  );
   const filteredActionRequired = useMemo(
     () => filterInventoryRecords(actionRequired, filters),
     [actionRequired, filters]
@@ -105,223 +93,55 @@ export function WarehouseApp() {
     setCurrentView("inventory");
   }
 
-  function renderRecentMovementsCard() {
-    return (
-      <section className="content-card">
-        <div className="section-header">
-          <div>
-            <h2>{ui.sections.movementsTitle}</h2>
-            <p>{ui.sections.movementsSubtitle}</p>
-          </div>
-          <button className="btn ghost small" type="button" onClick={() => setCurrentView("movements")}>
-            View all
-          </button>
-        </div>
-        <div className="list-stack">
-          {recentMovements.map((movement) => {
-            const record = records.find((candidate) => candidate.tag.id === movement.tagId);
-            if (!record) return null;
-            return (
-              <article className="list-row movement-row" key={movement.id}>
-                <div className="movement-main">
-                  <strong>{record.product.name}</strong>
-                  <div className="movement-meta">
-                    <div className="detail-pair compact">
-                      <span className="detail-label">Warehouse</span>
-                      <strong>{record.warehouse.shortName}</strong>
-                    </div>
-                    <div className="detail-pair compact">
-                      <span className="detail-label">Location</span>
-                      <strong>{record.zoneName} / {record.rackLabel} / {record.containerLabel}</strong>
-                    </div>
-                  </div>
-                </div>
-                <div className="movement-side">
-                  <div className="detail-pair compact">
-                    <span className="detail-label">Movement</span>
-                    <strong>{getMovementTypeLabel(movement.type)}</strong>
-                  </div>
-                  <div className="detail-pair compact">
-                    <span className="detail-label">Quantity</span>
-                    <strong>{movement.quantity}</strong>
-                  </div>
-                  <div className="detail-pair compact">
-                    <span className="detail-label">Date</span>
-                    <strong>{formatDate(movement.occurredAt.slice(0, 10))}</strong>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-    );
-  }
-
-  function renderActionCard() {
-    return (
-      <section className="content-card action-card">
-        <div className="section-header">
-          <div>
-            <h2>{ui.sections.actionTitle}</h2>
-            <p>{ui.sections.actionCardSubtitle}</p>
-          </div>
-        </div>
-        <div className="list-stack">
-          {actionRequired.slice(0, 5).map((record) => (
-            <button
-              className="list-row button-row"
-              key={record.id}
-              type="button"
-              onClick={() => {
-                highlightSelection({
-                  productIds: [record.product.id],
-                  warehouseIds: [record.warehouse.id],
-                  tagIds: [record.tag.id],
-                });
-                setSelectedWarehouseId(record.warehouse.id);
-                setCurrentView("warehouses");
-              }}
-            >
-              <div>
-                <strong>{record.product.name}</strong>
-                <span>{getLocationSummary(record)}</span>
-              </div>
-              <div className="list-value">
-                <strong>{getStatusLabel(record.status)}</strong>
-                <span>{record.tag.quantity} units</span>
-              </div>
-            </button>
-          ))}
-        </div>
-      </section>
-    );
-  }
-
   function renderDashboard() {
     return (
-      <div className="page-stack">
-        <Hero
-          totalUnits={metrics.totalUnits}
-          lowStockCount={metrics.lowStockCount + metrics.criticalCount}
-          movementsToday={metrics.movementsToday}
-          onScan={openScanner}
-        />
-        <Stats metrics={metrics} />
-        <DashboardCharts records={filteredRecords} movements={movements} warehouses={warehouses} />
-        <div className="split-grid">
-          {renderRecentMovementsCard()}
-          {renderActionCard()}
-        </div>
-      </div>
+      <Overview
+        records={filteredRecords}
+        warehouses={warehouses}
+        movements={movements}
+        allMovements={allMovements}
+        recentMovements={recentMovements}
+        metrics={metrics}
+        actionRequired={actionRequired}
+        dateRange={filters.dateRange}
+        searchQuery={filters.query}
+        onDateRangeChange={(value) => setFilter("dateRange", value)}
+        onSearch={(value) => setFilter("query", value)}
+        onScan={openScanner}
+        onViewMovements={() => setCurrentView("movements")}
+        onViewRestock={() => setCurrentView("action")}
+      />
     );
   }
 
   function renderMovements() {
     return (
-      <section className="content-section">
-        <div className="section-header">
-          <div>
-            <h2>{ui.sections.movementsTitle}</h2>
-            <p>{ui.sections.movementsSubtitle}</p>
-          </div>
-        </div>
-        <div className="list-stack large">
-          {movements.map((movement) => {
-            const record = records.find((candidate) => candidate.tag.id === movement.tagId);
-            if (!record) return null;
-            return (
-              <article className="list-row movement-row" key={movement.id}>
-                <div className="movement-main">
-                  <strong>{record.product.name}</strong>
-                  <div className="movement-meta">
-                    <div className="detail-pair compact">
-                      <span className="detail-label">Tag</span>
-                      <strong>{movement.tagId}</strong>
-                    </div>
-                    <div className="detail-pair compact">
-                      <span className="detail-label">Location</span>
-                      <strong>{record.zoneName} / {record.rackLabel} / {record.containerLabel}</strong>
-                    </div>
-                  </div>
-                </div>
-                <div className="movement-side">
-                  <div className="detail-pair compact">
-                    <span className="detail-label">Movement</span>
-                    <strong>{getMovementTypeLabel(movement.type)}</strong>
-                  </div>
-                  <div className="detail-pair compact">
-                    <span className="detail-label">Quantity</span>
-                    <strong>{movement.quantity}</strong>
-                  </div>
-                  <div className="detail-pair compact">
-                    <span className="detail-label">Timestamp</span>
-                    <strong>{new Date(movement.occurredAt).toLocaleString("en-US")}</strong>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </section>
+      <MovementsView
+        title={ui.sections.movementsTitle}
+        subtitle="Monitor stock entering and leaving each warehouse."
+        movements={allMovements}
+        records={records}
+        warehouses={warehouses}
+        searchQuery={filters.query}
+        onSearch={(value) => setFilter("query", value)}
+        onScan={openScanner}
+        onViewRestock={() => setCurrentView("action")}
+      />
     );
   }
 
   function renderWarehouses() {
-    const layoutAvailable = getWarehouseLayout(selectedWarehouseId);
-
     return (
-      <div className="page-stack">
-        <section className="content-section">
-          <div className="section-header">
-            <div>
-              <h2>{ui.sections.warehousesTitle}</h2>
-              <p>{ui.sections.warehousesSubtitle}</p>
-            </div>
-          </div>
-          <div className="warehouse-grid">
-            {warehouseSummaries.map((summary) => (
-              <article className="warehouse-card" key={summary.warehouse.id}>
-                <div className="warehouse-card-top">
-                  <strong>{summary.warehouse.name}</strong>
-                  <span>{summary.totalUnits} units</span>
-                </div>
-                <div className="detail-pair compact">
-                  <span className="detail-label">Products</span>
-                  <strong>{summary.products}</strong>
-                </div>
-                <div className="detail-pair compact">
-                  <span className="detail-label">Needs attention</span>
-                  <strong>{summary.needsAttention}</strong>
-                </div>
-                <div className="hero-actions">
-                  <button
-                    className="btn primary small"
-                    type="button"
-                    onClick={() => setSelectedWarehouseId(summary.warehouse.id)}
-                  >
-                    Open layout
-                  </button>
-                  <button
-                    className="btn ghost small"
-                    type="button"
-                    onClick={() => handleOpenMap(summary.warehouse.id)}
-                  >
-                    Open map
-                  </button>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-        {selectedWarehouseId !== "all" && layoutAvailable ? (
-          <WarehouseLayout
-            warehouseId={selectedWarehouseId}
-            records={selectedWarehouseRecords}
-            highlightedTagIds={highlightedTagIds}
-          />
-        ) : null}
-      </div>
+      <WarehousesView
+        title={ui.sections.warehousesTitle}
+        subtitle={ui.sections.warehousesSubtitle}
+        summaries={warehouseSummaries}
+        selectedWarehouseId={selectedWarehouseId}
+        highlightedTagIds={highlightedTagIds}
+        onSelectWarehouse={setSelectedWarehouseId}
+        onLocateProduct={() => handleOpenMap()}
+        onViewInventory={handleFilterWarehouse}
+      />
     );
   }
 
@@ -359,17 +179,15 @@ export function WarehouseApp() {
       );
     }
     return (
-      <InventorySection
-        title={ui.sections.actionTitle}
-        subtitle={ui.sections.actionSubtitle}
+      <RestockView
+        title="Restock center"
+        subtitle="Prioritize low-stock products and take action before inventory runs out."
         records={filteredActionRequired}
+        allRecords={records}
         warehouses={warehouses}
         categories={categories}
         filters={filters}
-        highlightedTagIds={highlightedTagIds}
         onFilterChange={setFilter}
-        onEdit={setEditingRecord}
-        onDelete={deleteTag}
       />
     );
   }
